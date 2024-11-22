@@ -5,6 +5,7 @@
 package com.casalimpia_app.turnoshorizen;
 
 import static com.casalimpia_app.turnoshorizen.model.FileProcessor.processExcelFiles;
+import static com.casalimpia_app.turnoshorizen.procesamiento_hojas.writeData.validacionTurnos;
 import javafx.application.Application;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -68,6 +69,8 @@ public class TurnosHorizen extends Application {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (InvalidFormatException ex) {
+                    Logger.getLogger(TurnosHorizen.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
                     Logger.getLogger(TurnosHorizen.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {

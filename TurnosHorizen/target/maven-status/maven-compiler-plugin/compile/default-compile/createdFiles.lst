@@ -1,5 +1,6 @@
-com\casalimpia_app\turnoshorizen\procesamiento_hojas\service.class
 com\casalimpia_app\turnoshorizen\model\FileProcessor.class
-com\casalimpia_app\turnoshorizen\procesamiento_hojas\función.class
+com\casalimpia_app\turnoshorizen\procesamiento_hojas\service.class
 com\casalimpia_app\turnoshorizen\procesamiento_hojas\writeData.class
 com\casalimpia_app\turnoshorizen\TurnosHorizen.class
+com\casalimpia_app\turnoshorizen\model\consultasSIC.class
+com\casalimpia_app\turnoshorizen\procesamiento_hojas\tue_wed_thu_fri.class
