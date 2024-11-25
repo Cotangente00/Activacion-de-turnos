@@ -4,6 +4,7 @@
 
 package com.casalimpia_app.turnoshorizen;
 
+import com.casalimpia_app.turnoshorizen.model.FileProcessor;
 import static com.casalimpia_app.turnoshorizen.model.FileProcessor.processExcelFiles;
 import static com.casalimpia_app.turnoshorizen.procesamiento_hojas.writeData.validacionTurnos;
 import javafx.application.Application;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
@@ -42,12 +44,18 @@ public class TurnosHorizen extends Application {
     public void start(Stage primaryStage) {
         FileChooser fileChooser = new FileChooser();
 
+        // Etiquetas para mostrar los archivos seleccionados
+        Label file1Label = new Label("Archivo 1 no seleccionado.");
+        Label file2Label = new Label("Archivo 2 no seleccionado.");
+
         // Botón 1 para seleccionar archivo 1
         Button selectFile1Button = new Button("Seleccione Asistencia");
         selectFile1Button.setOnAction(e -> {
             file1 = fileChooser.showOpenDialog(primaryStage);
             if (file1 != null) {
-                System.out.println("Archivo seleccionado: " + file1.getName());
+                file1Label.setText("Archivo seleccionado: " + file1.getName());
+            } else {
+                file1Label.setText("Archivo 1 no seleccionado.");
             }
         });
 
@@ -56,7 +64,9 @@ public class TurnosHorizen extends Application {
         selectFile2Button.setOnAction(e -> {
             file2 = fileChooser.showOpenDialog(primaryStage);
             if (file2 != null) {
-                System.out.println("Archivo seleccionado: " + file2.getName());
+                file2Label.setText("Archivo seleccionado: " + file2.getName());
+            } else {
+                file2Label.setText("Archivo 2 no seleccionado.");
             }
         });
 
@@ -65,7 +75,7 @@ public class TurnosHorizen extends Application {
         processFilesButton.setOnAction(e -> {
             if (file1 != null && file2 != null) {
                 try {
-                    processExcelFiles(file1, file2); // Procesar los archivos
+                    FileProcessor.processExcelFiles(file1, file2, primaryStage); // Procesar los archivos
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (InvalidFormatException ex) {
@@ -78,14 +88,30 @@ public class TurnosHorizen extends Application {
             }
         });
 
+        // Botón para eliminar los archivos seleccionados
+        Button clearFilesButton = new Button("Eliminar Archivos Seleccionados");
+        clearFilesButton.setOnAction(e -> {
+            file1 = null;
+            file2 = null;
+            file1Label.setText("Archivo 1 no seleccionado.");
+            file2Label.setText("Archivo 2 no seleccionado.");
+            System.out.println("Archivos seleccionados eliminados.");
+        });
+
         // Layout de la interfaz gráfica
-        VBox layout = new VBox(10, selectFile1Button, selectFile2Button, processFilesButton);
+        VBox layout = new VBox(10, selectFile1Button, file1Label, selectFile2Button, file2Label, processFilesButton, clearFilesButton);
         layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout, 410, 110);
+        Scene scene = new Scene(layout, 450, 250);
 
         primaryStage.setTitle("Procesamiento de Archivos Excel");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    // Método ficticio para procesar los archivos (implementa tu lógica aquí)
+    private void processExcelFiles(File file1, File file2) throws IOException, InvalidFormatException {
+        // Aquí va tu lógica de procesamiento
+        System.out.println("Procesando archivos: " + file1.getName() + " y " + file2.getName());
     }
 }
