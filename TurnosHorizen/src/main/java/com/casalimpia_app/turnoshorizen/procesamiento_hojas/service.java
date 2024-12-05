@@ -580,17 +580,17 @@ public class service {
         }
         System.out.println(indice2);
         
-        
+        /*
         FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/ResultsAsistencias.xlsx");
         wb1.write(outputStream);
-        outputStream.close();
-        wb1.close();
+        //outputStream.close();
+        //wb1.close();
         FileOutputStream outputStream2 = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/ResultsTurnos.xlsx");
         wb2.write(outputStream2);
         outputStream.close();
         wb2.close();
         //System.out.println("Archivo Excel creado exitosamente: resultados.xlsx");
-        
+         */
     }
     
     public static void main(String[] args) throws Exception {
