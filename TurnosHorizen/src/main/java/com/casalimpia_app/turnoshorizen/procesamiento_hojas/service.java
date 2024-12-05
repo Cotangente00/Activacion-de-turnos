@@ -36,7 +36,7 @@ public class service {
         // Obtener las columnas de interés como iteradores
         Iterator<Row> rowIterator1 = ws1.iterator();
         rowIterator1.next();
-        rowIterator1.next(); // Empezar directamente desde la fila 3        
+        rowIterator1.next();// Empezar directamente desde la fila 3        
         Iterator<Row> rowIterator2 = ws2.iterator();
         rowIterator2.next(); // Saltar el encabezado de la información de los turnos
         
@@ -66,7 +66,7 @@ public class service {
         //List<Double> numeroDocumento = new ArrayList<>();
         
         //fecha de referencia para ejecutar pruebas
-        LocalDate fechaReferenciaPrueba = LocalDate.of(2024, 11, 16);
+        LocalDate fechaReferenciaPrueba = LocalDate.of(2024, 11, 25);
         
 
         // Listas para almacenar los números de documento de los supernumerarios
@@ -75,11 +75,13 @@ public class service {
         
         
         // Llenar las listas con los números de documento 
+        
         while (rowIterator1.hasNext()) {
             Row row = rowIterator1.next();
             Double numeroAsistencia = row.getCell(0).getNumericCellValue(); 
             numDocAsistencia.add(numeroAsistencia);
         }
+        
         //System.out.println("Conjunto de números de documento de la asistencia:" + numDocAsistencia);
         
         while (rowIterator2.hasNext()) {
@@ -91,6 +93,31 @@ public class service {
                 numDocTurnos.add(numeroTurno);
             }
         }
+        /*
+        for (int i = 2; i <= ws1.getLastRowNum(); i++) {
+            Row row = ws1.getRow(i);
+
+            // Si la fila es nula, continuar con la siguiente
+            if (row == null) {
+                break;
+            }
+
+            // Leer la celda de la columna A (número de documento)
+            Cell cellA = row.getCell(0);
+            if (cellA == null || cellA.getCellType() == Cell.CELL_TYPE_BLANK) {
+                // Detener la iteración si la celda A está vacía
+                break;
+            }
+
+            // Obtener el valor del número de documento (como tipo numérico)
+            double numeroAsistencia = cellA.getNumericCellValue();
+
+            numDocAsistencia.add(numeroAsistencia);
+        }  
+        
+        */
+        
+        
         //System.out.println("Conjunto de números de documentos de los turnos:" + numDocTurnos);
         
         //Comprobar y añadir las ND para el archivo de asistencia
@@ -101,7 +128,7 @@ public class service {
                 numDocNDAsistencia.add(numero);
             }
         }
-        System.out.println( "ND asistencia: " + numDocNDAsistencia);
+        //System.out.println( "ND asistencia: " + numDocNDAsistencia);
         
         
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -141,7 +168,7 @@ public class service {
                     if (fechaFinalCell.getCellType() == Cell.CELL_TYPE_NUMERIC && DateUtil.isCellDateFormatted(fechaFinalCell) || fechaFinalCell.getCellType() == Cell.CELL_TYPE_BLANK) {
                         Date fecha = fechaFinalCell.getDateCellValue();
                         fechasFinales.add(fecha);
-                    }
+                    } 
                 } else {
                     //Añadir las ND para el archivo de los turnos (nuevas)
                     numDocNDTurnos.add(numeroTurno);
@@ -152,10 +179,11 @@ public class service {
                 }
             }
         }
-        
+        /*
         for (Double numero : numDocAsistencia){
             System.out.println( "Lista de números de documento de la asistencia actualizada: " + numero);
         }
+        */
         /*
         for (Double numero : numDocNDTurnos){
             System.out.println( "ND Números de documento de los turnos(nuevas): " + numero);
@@ -258,8 +286,8 @@ public class service {
         }
         
         // Mostrar resultados en la terminal
-        for (int i = 0; i < numerosCoincidencias.size(); i++) {
-            //System.out.println(numerosCoincidencias.get(i) + ": " + fechasPrincipales.get(i) + " // " + fechasIniciales.get(i) + " // " + fechasFinales.get(i));
+        for (int i = 0; i < numerosCoincidencias2.size(); i++) {
+            System.out.println(numerosCoincidencias2.get(i) + ": " + fechasPrincipales2.get(i) + " // " + fechasIniciales2.get(i) + " // " + fechasFinales2.get(i));
         }
             
         /*
@@ -551,7 +579,8 @@ public class service {
             }
         }
         System.out.println(indice2);
-        /*
+        
+        
         FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/ResultsAsistencias.xlsx");
         wb1.write(outputStream);
         outputStream.close();
@@ -561,12 +590,12 @@ public class service {
         outputStream.close();
         wb2.close();
         //System.out.println("Archivo Excel creado exitosamente: resultados.xlsx");
-        */
+        
     }
     
     public static void main(String[] args) throws Exception {
-        String inputFilePath1 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Asistencia Noviembre-2024-Turnos Horizen (2).xlsx";
-        String inputFilePath2 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Reporte de 09 a 15 de noviembre.xlsx";
+        String inputFilePath1 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Asistencia Noviembre-2024-Turnos Horizen (3) (1).xlsx";
+        String inputFilePath2 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/22 a 29 de noviembre(org).xlsx";
         /*
         String outputFilePath1 = "O:/aa/result2.xlsx";
         String outputFilePath2 = "O:/aa/result2.xlsx";

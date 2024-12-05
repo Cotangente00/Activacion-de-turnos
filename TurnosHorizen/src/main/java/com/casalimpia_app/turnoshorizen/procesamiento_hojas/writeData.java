@@ -112,7 +112,7 @@ public class writeData {
                     cellResultado.setCellValue("Descanso");
                 }
             } 
-            
+            /*
             // Crear un estilo con la fuente deseada
             Font fuenteCalibri = wb1.createFont();
             fuenteCalibri.setFontName("Calibri");
@@ -127,13 +127,15 @@ public class writeData {
                     celda.setCellStyle(estiloCalibri);
                 }
             }
+            */
             //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+            
             escribirDatos(wsFilasCoincidentes, ws1, activaTurno, noActivaTurno, columnaIndex, fechaObjetivo, diaSemana);
             FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Results2.xlsx");
             wb1.write(outputStream);
             outputStream.close();
             wb1.close();
+            
         } else {
             System.out.println("Error, el proceso solamente se ejecuta de lunes a sábado");
         }
