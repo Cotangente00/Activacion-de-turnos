@@ -34,7 +34,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
  */
 public class writeData {
     public static void validacionTurnos(Workbook wb1, Workbook wb2) throws IOException{
-        Sheet ws1 = wb1.getSheet("TURNOS MES DE NOVIEMBRE");
+        Sheet ws1 = wb1.getSheet("TURNOS MES DE DICIEMBRE");
         Sheet wsResultados = wb2.getSheet("Resultados");
         Sheet wsFilasCoincidentes = wb2.getSheet("FilasCoincidentes");
         Cell celdaCoordenadas = wsResultados.getRow(0).getCell(4);
@@ -142,11 +142,11 @@ public class writeData {
         } else {
             System.out.println("Error, el proceso solamente se ejecuta de lunes a sábado");
         }
-        /*
+        
         FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Results2.xlsx");
         wb1.write(outputStream);
         outputStream.close();
-         */
+         
     }
     
     public static void main(String[] args) throws Exception {

@@ -29,7 +29,7 @@ import org.apache.poi.ss.util.CellReference;
  */
 public class service {
     public static void coincidencias(Workbook wb1, Workbook wb2) throws Exception {
-        Sheet ws1 = wb1.getSheet("TURNOS MES DE NOVIEMBRE");
+        Sheet ws1 = wb1.getSheet("TURNOS MES DE DICIEMBRE");
         Sheet ws2 = wb2.getSheetAt(0);
         System.out.println("Hoja asistencia: " + ws1);
         System.out.println("Hoja turnos: " + ws2);
@@ -66,7 +66,7 @@ public class service {
         //List<Double> numeroDocumento = new ArrayList<>();
         
         //fecha de referencia para ejecutar pruebas
-        LocalDate fechaReferenciaPrueba = LocalDate.of(2024, 11, 25);
+        LocalDate fechaReferenciaPrueba = LocalDate.of(2024, 12, 04);
         
 
         // Listas para almacenar los números de documento de los supernumerarios
@@ -580,7 +580,7 @@ public class service {
         }
         System.out.println(indice2);
         
-        /*
+        
         FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/ResultsAsistencias.xlsx");
         wb1.write(outputStream);
         //outputStream.close();
@@ -590,12 +590,12 @@ public class service {
         outputStream.close();
         wb2.close();
         //System.out.println("Archivo Excel creado exitosamente: resultados.xlsx");
-         */
+         
     }
     
     public static void main(String[] args) throws Exception {
-        String inputFilePath1 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Asistencia Noviembre-2024-Turnos Horizen (3) (1).xlsx";
-        String inputFilePath2 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/22 a 29 de noviembre(org).xlsx";
+        String inputFilePath1 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Asistencia Diciembre-2024-Turnos Horizen.xlsx";
+        String inputFilePath2 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Reporte_Casalimpia_07122024.xlsx";
         /*
         String outputFilePath1 = "O:/aa/result2.xlsx";
         String outputFilePath2 = "O:/aa/result2.xlsx";
