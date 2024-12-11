@@ -142,11 +142,11 @@ public class writeData {
         } else {
             System.out.println("Error, el proceso solamente se ejecuta de lunes a sábado");
         }
-        
+        /*
         FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Results2.xlsx");
         wb1.write(outputStream);
         outputStream.close();
-         
+          */
     }
     
     public static void main(String[] args) throws Exception {

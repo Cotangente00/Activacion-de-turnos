@@ -28,7 +28,7 @@ import org.apache.poi.ss.util.CellReference;
  * @author jcavilaa
  */
 public class service {
-    public static void coincidencias(Workbook wb1, Workbook wb2) throws Exception {
+    public static void coincidencias(Workbook wb1, Workbook wb2, LocalDate fechaReferencia) throws Exception {
         Sheet ws1 = wb1.getSheet("TURNOS MES DE DICIEMBRE");
         Sheet ws2 = wb2.getSheetAt(0);
         System.out.println("Hoja asistencia: " + ws1);
@@ -580,7 +580,7 @@ public class service {
         }
         System.out.println(indice2);
         
-        
+        /*
         FileOutputStream outputStream = new FileOutputStream("O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/ResultsAsistencias.xlsx");
         wb1.write(outputStream);
         //outputStream.close();
@@ -590,16 +590,19 @@ public class service {
         outputStream.close();
         wb2.close();
         //System.out.println("Archivo Excel creado exitosamente: resultados.xlsx");
+         */
          
     }
     
+
+    /* 
     public static void main(String[] args) throws Exception {
         String inputFilePath1 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Asistencia Diciembre-2024-Turnos Horizen.xlsx";
         String inputFilePath2 = "O:/proyecto/Activacion-de-turnos/TurnosHorizen/src/main/java/com/casalimpia_app/turnoshorizen/Reporte_Casalimpia_07122024.xlsx";
-        /*
+        
         String outputFilePath1 = "O:/aa/result2.xlsx";
         String outputFilePath2 = "O:/aa/result2.xlsx";
-        */
+        
         Workbook wb1, wb2;
         try (FileInputStream fis1 = new FileInputStream(new File(inputFilePath1))) {
             wb1 = WorkbookFactory.create(fis1);  // Apache POI detecta automáticamente si es .xls o .xlsx
@@ -610,16 +613,18 @@ public class service {
         }
 
         try {
-            coincidencias(wb1, wb2);
-            /*
+            coincidencias(wb1, wb2, fechaReferencia);
+            
             wb1.write(new FileOutputStream(outputFilePath1));
             wb1.close();
             wb2.write(new FileOutputStream(outputFilePath2));
             wb2.close();
-            */
+            
             //System.out.println("Archivo procesado exitosamente.");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    
     }
+    */
 }
